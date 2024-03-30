@@ -2,9 +2,7 @@
 import { sidebarLinks } from '@/constants';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { SignOutButton, SignedIn } from '@clerk/nextjs';
-import Logout from "/assets/logout.svg";
+import { usePathname} from 'next/navigation';
 
 function Bottombar(){
 

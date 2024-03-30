@@ -3,7 +3,7 @@
 import { sidebarLinks } from '@/constants';
 import Link from 'next/link';
 import Image from 'next/image';
-import { redirect, usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SignOutButton, SignedIn, useAuth } from '@clerk/nextjs';
 import Logout from "/assets/logout.svg";
 
