@@ -22,7 +22,7 @@ async function Page() {
             <>
             {activity.map((activity)  => (
               <Link key={activity._id} href={`/thread/${activity.parentId}`}>
-                <article>
+                <article className="flex items-center">
                   <Image 
                   src={activity.author.image}
                   alt="Profile picture"
@@ -31,7 +31,7 @@ async function Page() {
                   className="rounded-full"
                   />
                   <p className="!text-small-regular text-light-1">
-                    <span className="mr-1 text-primary-500">
+                    <span className="ml-1 text-primary-500">
                       {activity.author.name}
                     </span>{" "}
                     replied to your channel
