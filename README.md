@@ -24,6 +24,6 @@ We'll dive deep into various functionalities, including:
 10. **React Hook Form**: Manage complex forms with ease and leverage form state management effectively.
 11. **Reusable Components**: Build a maintainable codebase with well-structured and reusable components.
 
-### **Deployment Note**: While the application is fully functional with the core features demonstrated in the provided video, it is currently encountering deployment-related issues. These issues are being addressed, and a fully functional deployed version will be available soon.
+### **Deployment Note**: While the application is fully functional with the core features demonstrated in the provided video, it is currently encountering deployment-related issues.So, here is the video of working project:
 
 https://github.com/drvcodenta/LocaLink/assets/95343534/196a1f5c-dee2-4e0a-aa3e-42522b508095
