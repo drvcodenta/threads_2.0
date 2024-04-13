@@ -9,7 +9,6 @@
 4. **User Discovery**: A user search feature enables easy discovery of other users on the platform.
 5. **Personal Profiles**: Each user has a dedicated profile page to showcase their information and activity.
 6. **Responsive Design**: The application seamlessly adapts to all device viewports, ensuring a consistent and optimal user experience across desktop, mobile, and tablet devices.
-7. **Deployment Note**: While the application is fully functional with the core features demonstrated in the provided video, it is currently encountering deployment-related issues. These issues are being addressed, and a fully functional deployed version will be available soon.
 
 We'll dive deep into various functionalities, including:
 
@@ -25,4 +24,4 @@ We'll dive deep into various functionalities, including:
 10. **React Hook Form**: Manage complex forms with ease and leverage form state management effectively.
 11. **Reusable Components**: Build a maintainable codebase with well-structured and reusable components.
 
-It includes 
+### **Deployment Note**: While the application is fully functional with the core features demonstrated in the provided video, it is currently encountering deployment-related issues. These issues are being addressed, and a fully functional deployed version will be available soon.
