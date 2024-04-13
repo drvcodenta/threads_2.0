@@ -14,7 +14,7 @@ import { Button } from "../ui/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/ui/input";
-import { usePathname,useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 
 
@@ -22,7 +22,6 @@ import { usePathname,useRouter } from "next/navigation";
 import { CommentValidation } from "@/lib/validations/thread";
 import Image from 'next/image';
 import { addCommentToThread } from '@/lib/actions/thread.actions';
-import { userInfo } from 'os';
 // import { createThread } from '@/lib/actions/thread.actions';
 
 

@@ -25,7 +25,7 @@ async function Home() {
             content = {post.text}
             author = {post.author}
             community = {post.community}
-            createAt = {post.createdAt}
+            createdAt = {post.createdAt}
             comments = {post.children}
             />
           ))}

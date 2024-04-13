@@ -30,7 +30,7 @@ const Page = async ({ params } : { params : { id : string}}) => {
             content = {thread.text}
             author = {thread.author}
             community = {thread.community}
-            createAt = {thread.createdAt}
+            createdAt = {thread.createdAt}
             comments = {thread.children}
         />
         </div>
@@ -52,7 +52,7 @@ const Page = async ({ params } : { params : { id : string}}) => {
             content={childItem.text}
             author={childItem.author}
             community={childItem.community}
-            createAt={childItem.createAt}
+            createdAt={childItem.createAt}
             comments={childItem.children}
             isComment
             />))}
