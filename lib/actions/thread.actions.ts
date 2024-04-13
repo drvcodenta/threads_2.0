@@ -1,10 +1,11 @@
 'use server'
 
 import { revalidatePath } from "next/cache";
-import Thread from "../models/thread.model";
-import User from "../models/user.model";
 import { ConnectToDB } from "../mongoose";
+import User from "../models/user.model";
+import Thread from "../models/thread.model";
 import { error } from "console";
+import Community from "../models/community.model";
 
 
 interface Params{
@@ -16,28 +17,41 @@ interface Params{
 export async function createThread({
 text,author,communityId,path
 }: Params) {
-
     try {
         ConnectToDB();
-    
+        const communityIdObject = await Community.findOne(
+            { id: communityId },
+            { _id: 1 }
+          );      
         const createThread = await Thread.create({
             text,
             author,
-            commmunity: null,
+            commmunity: communityIdObject,
         }); //This produces the Thread
     
         //Update User Model
-    
-        await User.findByIdAndUpdate(author, {
+        if (communityIdObject){
+        await Community.findByIdAndUpdate(communityIdObject, {
             $push: { threads: createThread._id} //This pushed the thread to User
         })
-    
+        }
         revalidatePath(path);
     } catch (error:any) {
         throw new Error(`Error Creating Thread: ${error.message}`);
     }
 }
 
+async function fetchAllChildThreads(threadId: string): Promise<any[]> {
+    const childThreads = await Thread.find({ parentId: threadId });
+  
+    const descendantThreads = [];
+    for (const childThread of childThreads) {
+      const descendants = await fetchAllChildThreads(childThread._id);
+      descendantThreads.push(childThread, ...descendants);
+    }
+  
+    return descendantThreads;
+  }
 
 // The pageNumber variable is the current page number, and the pageSize variable is the number of documents to display on each page
 
@@ -59,14 +73,13 @@ export async function fetchPost(pageNumber=1, pageSize=1){
             select: "_id name parentId image"
         }
     })
-    const totalPostCount = await Thread.count({
+    const totalPostCount = await Thread.countDocuments({
         parentId : {$in : [null, undefined]}
     })
     const posts = await postsQuery.exec(); //is used to execute the postsQuery query and assign the results to the posts variable
     const isNext = totalPostCount > skipAmount + posts.length
-    return {isNext , posts}
+    return { posts, isNext}
 }
-
 
 export async function fetchThreadById(id: string){
     ConnectToDB();
