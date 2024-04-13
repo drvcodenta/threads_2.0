@@ -81,7 +81,8 @@ const ThreadCard = ({
                     </div>
                     </div>
                 </div>
-                {!isComment && community && (
+            </div>
+            {!isComment && community && (
                     <Link href={`/communities/${community.id}`} className="mt-5 flex items-center">
                         <p className="text-subtle-medium text-gray-1">
                             {formatDateString(createdAt)}
@@ -96,7 +97,6 @@ const ThreadCard = ({
                         />
                     </Link>
                 )}
-            </div>
         </article>   
     )
 }

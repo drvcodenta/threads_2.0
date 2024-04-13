@@ -26,7 +26,7 @@ text,author,communityId,path
         const createThread = await Thread.create({
             text,
             author,
-            commmunity: communityIdObject,
+            commmunity: communityId,
         }); //This produces the Thread
     
         //Update User Model

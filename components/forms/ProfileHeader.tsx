@@ -6,7 +6,8 @@ interface props{
     name: string,
     userName: string,
     imgUrl: string,
-    bio: string
+    bio: string,
+    type?: 'User' | 'Community',
 }
 
 const ProfileHeader = ({name,userName,imgUrl,bio}: props) => {
