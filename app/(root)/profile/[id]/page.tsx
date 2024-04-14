@@ -4,7 +4,6 @@ import ThreadsTab from "@/components/shared/ThreadTab";
 import { profileTabs } from "@/constants";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
-import Image from "next/image";
 import { redirect } from "next/navigation";
 
 async function Page({params}:{params: {id: string}}) {
@@ -35,13 +34,6 @@ async function Page({params}:{params: {id: string}}) {
                                     value={tab.value}
                                     className="tab"
                                 >
-                                    <Image
-                                        src={tab.icon}
-                                        alt={tab.label}
-                                        height={24}
-                                        width={24}
-                                        className="object-contain"
-                                    />
                                     <p className="max-sm:hidden">{tab.label}</p>
 
                                     {tab.label === "Threads" && (

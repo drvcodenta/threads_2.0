@@ -1,3 +1,4 @@
+//checked
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "/assets/logo.svg";
@@ -9,7 +10,9 @@ function Topbar(){
     return(
         <nav className="topbar">
             <Link href="/" className="flex items-centre gap-4">
+            <div style={{ width: '28px' }}>
                 <Image src={Logo} alt="logo" width={28} height={28} />
+                </div>
                 <p className="text-heading3-bold text-light-1 max-xs:hidden">LocaLink</p>
             </Link>
 

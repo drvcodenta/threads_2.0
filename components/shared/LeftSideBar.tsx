@@ -1,4 +1,5 @@
 "use client"
+// checked
 
 import { sidebarLinks } from '@/constants';
 import Link from 'next/link';
@@ -46,7 +47,6 @@ function LeftSideBar(){
                                 alt='logout'
                                 width={24}
                                 height={24} />
-
                             <p className='text-light-2 max-lg:hidden'>Logout</p>
                             </div>
                         </SignOutButton>

@@ -1,3 +1,4 @@
+//checked
 function RightSideBar(){
     return(
         <section className="custom-scrollbar rightsidebar">
