@@ -34,7 +34,6 @@ export default function RootLayout({
           <RightSideBar />
         </main>
         <Bottombar />
-        {children}
       </body>
     </html>
     </ClerkProvider>

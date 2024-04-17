@@ -70,6 +70,7 @@ export async function fetchUserPosts(userId: string){
             }
         }
         )
+        console.log('threads fetched for ThreadTab:', threads)
         return threads;
     }catch(error: any){
         throw new Error(`Failed to fetch the post in the tabs section: ${error}`)

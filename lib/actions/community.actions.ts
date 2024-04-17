@@ -39,8 +39,8 @@ export async function createCommunity(
 
     // Update User model
     user.communities.push(createdCommunity._id);
+    console.log("Created Community: ", createdCommunity);
     await user.save();
-
     return createdCommunity;
   } catch (error) {
     // Handle any errors
@@ -73,6 +73,7 @@ export async function fetchCommunityDetails(id: string) {
 export async function fetchCommunityPosts(id: string) {
   try {
     ConnectToDB();
+    // Removed the bugs which i thought them to be bugs
 
     const communityPosts = await Community.findById(id).populate({
       path: "threads",
@@ -89,12 +90,13 @@ export async function fetchCommunityPosts(id: string) {
           populate: {
             path: "author",
             model: User,
-            select: "image _id", // Select the "name" and "_id" fields from the "User" model
+            select: "image id", // Select the "name" and "_id" fields from the "User" model
           },
         },
       ],
     });
 
+    console.log('communityPosts from Threads Tab:', communityPosts)
     return communityPosts;
   } catch (error) {
     // Handle any errors
