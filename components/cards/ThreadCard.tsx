@@ -1,3 +1,4 @@
+// checked
 import Image from "next/image";
 import Link from "next/link";
 import heart_grey from "/assets/heart-gray.svg"

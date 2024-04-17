@@ -1,3 +1,4 @@
+//i think there is some problem in sending the details of community from this page to ThreadCard
 import ThreadCard from "@/components/cards/ThreadCard";
 import { fetchPost } from "@/lib/actions/thread.actions"
 import { currentUser } from "@clerk/nextjs";

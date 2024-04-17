@@ -1,6 +1,4 @@
 'use client'
-
-
 import * as z from 'zod';
 import {
     Form,
@@ -15,18 +13,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/_/ui/textarea";
 import { usePathname,useRouter } from "next/navigation";
-
-
-
 // import { UpdateUser } from "@/lib/actions/user.actions";
 import { ThreadValidation } from "@/lib/validations/thread";
 import { createThread } from '@/lib/actions/thread.actions';
 import { useOrganization } from '@clerk/nextjs';
-
-
-interface Props{
-  userId: string;
-}
 
 function PostThread({userId}: {userId : string}){
 
@@ -49,7 +39,6 @@ function PostThread({userId}: {userId : string}){
         communityId: organization ? organization.id : null,
         path: pathname,
       });
-
       router.push("/");
     }
 
