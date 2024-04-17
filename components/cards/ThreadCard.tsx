@@ -6,7 +6,6 @@ import share from "/assets/share.svg"
 import repost from "/assets/repost.svg"
 import { formatDateString } from "@/lib/utils";
 
-
 interface Props{
     id: string,
     currentUserId: string,
@@ -64,7 +63,7 @@ const ThreadCard = ({
                     <p className="text-small-regular text-light-2">
                         {content}
                     </p>
-                    <div className="mt-5 flex flex-col gap-3">
+                    <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
                         <div className="flex gap-3.5">
                             <Image src={heart_grey} alt="heart" width={24} height={24} className="cursor-pointer object-contain" />
                             <Link href={`/thread/${id}`}>
@@ -73,15 +72,32 @@ const ThreadCard = ({
                             <Image src={repost} alt="repost" width={24} height={24} className="cursor-pointer object-contain" />
                             <Image src={share} alt="share" width={24} height={24} className="cursor-pointer object-contain" />
                             </div>
-                            {isComment && comments.length > 0 && (
-                                <Link href={`/thread/${id}`}>
-                                    <p className="mt-1 text-subtle-medium text-gray-1">{comments.length} repl{comments.length > 1 ? "ies" : "y"}</p>
-                                </Link>
-                            )}
                     </div>
                     </div>
                 </div>
             </div>
+
+            {!isComment && comments.length > 0 && (
+                <div className='ml-1 mt-3 flex items-center gap-2'>
+                {comments.slice(0, 2).map((comment, index) => (
+                    <Image
+                    key={index}
+                    src={comment.author.image}
+                    alt={`user_${index}`}
+                    width={24}
+                    height={24}
+                    className={`${index !== 0 && "-ml-5"} rounded-full object-cover`}
+                    />
+                ))}
+
+                <Link href={`/thread/${id}`}>
+                    <p className='mt-1 text-subtle-medium text-gray-1'>
+                    {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                    </p>
+                </Link>
+                </div>
+            )}
+
             {!isComment && community && (
                     <Link href={`/communities/${community.id}`} className="mt-5 flex items-center">
                         <p className="text-subtle-medium text-gray-1">

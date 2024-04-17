@@ -1,3 +1,4 @@
+// checked
 import mongoose from "mongoose";
 
 const CommunitySchema = new mongoose.Schema({

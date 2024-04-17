@@ -55,7 +55,7 @@ async function fetchAllChildThreads(threadId: string): Promise<any[]> {
 
 // The pageNumber variable is the current page number, and the pageSize variable is the number of documents to display on each page
 
-export async function fetchPost(pageNumber=1, pageSize=1){
+export async function fetchPost(pageNumber=1, pageSize=20){
     ConnectToDB();
     const skipAmount = (pageNumber - 1) * pageSize; 
     //This snnipet fetched the post that have no parent id
@@ -63,8 +63,9 @@ export async function fetchPost(pageNumber=1, pageSize=1){
     const postsQuery = Thread.find({ parentId: {$in: [null, undefined]}})
     .sort({ createdAt: 'desc'})
     .skip(skipAmount) //This can be useful for implementing pagination
-    .limit(1)  //The .limit() method in MongoDB allows you to limit the number of documents that are returned by a query
+    .limit(pageSize)  //The .limit() method in MongoDB allows you to limit the number of documents that are returned by a query
     .populate({ path: 'author',model: User}) //The .populate() method in MongoDB allows you to populate the fields of a document with the data from other documents in other collections
+    .populate({ path: "community", model: Community})
     .populate({
         path: 'children',
         populate: {
@@ -74,7 +75,7 @@ export async function fetchPost(pageNumber=1, pageSize=1){
         }
     })
     const totalPostCount = await Thread.countDocuments({
-        parentId : {$in : [null, undefined]}
+        parentId : {$in : [null, undefined]},
     })
     const posts = await postsQuery.exec(); //is used to execute the postsQuery query and assign the results to the posts variable
     const isNext = totalPostCount > skipAmount + posts.length
