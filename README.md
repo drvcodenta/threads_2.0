@@ -1,4 +1,8 @@
 # LocaLink
+
+https://github.com/drvcodenta/LocaLink/assets/95343534/196a1f5c-dee2-4e0a-aa3e-42522b508095
+
+
 ## Feature-Rich Social Networking Application Built with Next.js 14 . 
 
 ### This project showcases a full-fledged social networking application built with Next.js 14, offering a comprehensive set of user functionalities:
@@ -23,5 +27,3 @@ We'll dive deep into various functionalities, including:
 9. **Data Validation**: Ensure data integrity with Zod's powerful validation library.
 10. **React Hook Form**: Manage complex forms with ease and leverage form state management effectively.
 11. **Reusable Components**: Build a maintainable codebase with well-structured and reusable components.
-
-https://github.com/drvcodenta/LocaLink/assets/95343534/196a1f5c-dee2-4e0a-aa3e-42522b508095
